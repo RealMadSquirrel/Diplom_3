@@ -5,7 +5,13 @@ class LoginPageLocators:
     PERSONAL_BUTTON = (By.XPATH, "//a[@href = '/account']") # ссылка на Личный Кабинет
     FORGOT_PASSWORD = (By.XPATH, "//a[@href = '/forgot-password']")
     EMAIL_INPUT = (By.XPATH, "//label[text() = 'Email']/following-sibling::input[@type = 'text']")  # поле для ввода почты
+    PASSWORD_INPUT = (By.XPATH, "//label[text() = 'Пароль']/following-sibling::input[@type = 'password']")
     RESTORE_BUTTON = (By.XPATH, "//button[text() = 'Восстановить']") # Восстановить
     RESTORE_BUTTON = (By.XPATH, "//h2[text() = 'Восстановление пароля']")
     EYE_BUTTON = (By.XPATH, "//div[contains(@class,'input__icon')]")
     EYE_BUTTON_STYLE = (By.XPATH, "//div[contains(@class,'input__icon')]/preceding::input[@name= 'Пароль']")
+    LOGIN_BUTTON = (By.XPATH, "//h2[text() = 'Вход']") # Надпись Вход
+    HISTORY_ORDER_BUTTON = (By.XPATH, "//a[@href='/account/order-history']")  # ссылка на Личный Кабинет
+    BUTTON_GO = (By.XPATH, "//button[text() = 'Войти']") #кнопка Войти
+    LIST_ORDER = (By.XPATH, "//ul[contains(@class,'OrderHistory_profileList')]") #список заказов
+    EXIT_BUTTON = (By.XPATH, "//button[text() = 'Выход']")

@@ -16,18 +16,20 @@ class LoginPage(BasePage):
 
     @allure.step('Заполняем поле Password')
     def set_password_input(self, password):
-        login_input = self.wait_and_find_element(PASSWORD_INPUT)
+        login_input = self.wait_and_find_element(LoginPageLocators.PASSWORD_INPUT)
         login_input.send_keys(password)
 
     @allure.step('Кликаем на кнопку Личный кабинет')
     def click_auth_button(self):
         button = self.wait_and_find_element(MainPageLocators.PERSONAL_BUTTON)
         button.click()
-        return MainPage(self.driver)
+        return LoginPage(self.driver)
 
     @allure.step('Возвращает кнопку "Показать/Скрыть" пароль')
     def click_show_password(self, password_field):
         eye_button = self.wait_and_click_to_element(password_field)
         #eye_button.wait_and_click_to_element(password_field)
+
+
 
 

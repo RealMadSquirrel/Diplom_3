@@ -17,5 +17,4 @@ def driver(request):
     browser.get(Urls.BASE_URL)
 
     yield browser
-
     browser.quit()
