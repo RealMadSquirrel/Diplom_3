@@ -15,8 +15,8 @@ class TestLoginPage:
     def test_go_to_forgot_password(self, driver):
         login_page = LoginPage(driver)
         login_page.open_page(Urls.BASE_URL + Urls.LOGIN)
-        forgot_password_page = login_page.click_restore_password()
-        assert forgot_password_page.wait_and_find_element(ForgotPasswordPageLocators.RESTORE_BUTTON).text == 'Восстановить'
+        login_page.click_restore_password()
+        assert login_page.wait_url_to_be(Urls.BASE_URL + Urls.FORGOT_PASSWORD)
 
     @allure.title("Ввод почты и клик по кнопке «Восстановить»")
     @allure.description("Создается страница forgot_password_page, заполняется почта, клик по кнопке «Восстановить»")
@@ -24,15 +24,15 @@ class TestLoginPage:
         forgot_password_page = ForgotPasswordPage(driver)
         forgot_password_page.open_page(Urls.BASE_URL + Urls.FORGOT_PASSWORD)
         forgot_password_page.set_email_input(Data.EMAIL)
-        forgot_password_page.click_to_element_with_js(ForgotPasswordPageLocators.RESTORE_BUTTON)
-        assert forgot_password_page.url_changes(Urls.BASE_URL + Urls.RESET_PASSWORD)
+        forgot_password_page.click_password_restore()
+        assert forgot_password_page.wait_url_to_be(Urls.BASE_URL + Urls.RESET_PASSWORD)
 
     @allure.title("Клик по кнопке показать/скрыть пароль делает поле активным — подсвечивает его")
     @allure.description("Проверяю изменение атрибута type у элемента глазик")
     def test_get_password_input_state(self, driver):
         login_page = LoginPage(driver)
         login_page.open_page(Urls.BASE_URL + Urls.LOGIN)
-        old_style = login_page.wait_and_find_element(LoginPageLocators.EYE_BUTTON_STYLE).get_attribute('type')
-        login_page.click_to_element_with_js(LoginPageLocators.EYE_BUTTON)
-        new_style = login_page.wait_and_find_element(LoginPageLocators.EYE_BUTTON_STYLE).get_attribute('type')
+        old_style = login_page.get_eye_button_style()
+        login_page.click_eye_button()
+        new_style = login_page.get_eye_button_style()
         assert old_style != new_style

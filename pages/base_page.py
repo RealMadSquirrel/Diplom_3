@@ -7,7 +7,7 @@ import allure
 import selectors
 from seletools.actions import drag_and_drop
 from selenium.webdriver.common.action_chains import ActionChains
-from locators.main_functionality_locators import MainFuncPageLocators
+
 
 
 class BasePage:
@@ -94,5 +94,12 @@ class BasePage:
         return self.wait_and_find_element(locator).text
 
 
+    @allure.step('Дожидаемся, пока поменяется страница')
+    def wait_url_changes(self, url):
+        WebDriverWait(self.driver, 20).until(expected_conditions.url_changes(url))
+
+    @allure.step('Проверяем какая страница сейчас')
+    def wait_url_to_be(self, url):
+        return WebDriverWait(self.driver, 20).until(expected_conditions.url_to_be(url))
 
 

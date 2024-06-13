@@ -42,3 +42,10 @@ class UserApi:
     @allure.step("Отправка запроса на удаление пользователя")
     def delete_user(user_access_token):
         return requests.delete(Urls.BASE_URL + Urls.DELETE_USER, headers={'Authorization': user_access_token})
+
+
+class LoginUserApi:
+    @staticmethod
+    @allure.step("Авторизация пользователя")
+    def login(creds):
+        return requests.post(Urls.BASE_URL + Urls.LOGIN_API, json=creds)

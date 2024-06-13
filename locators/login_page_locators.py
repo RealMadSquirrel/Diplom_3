@@ -6,7 +6,7 @@ class LoginPageLocators:
     FORGOT_PASSWORD = (By.XPATH, "//a[@href = '/forgot-password']")
     EMAIL_INPUT = (By.XPATH, "//label[text() = 'Email']/following-sibling::input[@type = 'text']")  # поле для ввода почты
     PASSWORD_INPUT = (By.XPATH, "//label[text() = 'Пароль']/following-sibling::input[@type = 'password']")
-
+    CONSTRUCTOR_BUTTON = (By.XPATH, "//p[text() = 'Конструктор']/parent::a")  # кнопка Конструктор
 
     EYE_BUTTON = (By.XPATH, "//div[contains(@class,'input__icon')]")
     EYE_BUTTON_STYLE = (By.XPATH, "//div[contains(@class,'input__icon')]/preceding::input[@name= 'Пароль']")

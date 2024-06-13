@@ -9,7 +9,7 @@ class Urls:
     LENTA_ORDERS = '/feed'
     CREATE_USER = '/api/auth/register'
     DELETE_USER = '/api/auth/user'
-
+    LOGIN_API = '/api/auth/login'
 
 
 
