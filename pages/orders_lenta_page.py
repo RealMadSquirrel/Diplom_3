@@ -14,7 +14,7 @@ class OrderLentaPage(BasePage):
 
     @allure.step('Проверяем, что окно с деталями на странице ленты заказов присутствует')
     def check_exists_modal_window_orders(self):
-        return self.check_exists_by_xpath(OrdersLentaPageLocators.MODAL_WINDOW_ORDERS)
+        return self.wait_and_find_element(OrdersLentaPageLocators.MODAL_WINDOW_ORDERS)
 
     @allure.step('Поиск идентификатора заказа в ленте заказов')
     def search_order_id_in_lenta(self):

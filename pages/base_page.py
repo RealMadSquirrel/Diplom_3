@@ -52,9 +52,6 @@ class BasePage:
         element = self.driver.find_element(*locator)
         self.driver.execute_script("arguments[0].click();", element)
 
-    @allure.step('Проверка присутствия элемента на странице')
-    def check_exists_by_xpath(self, locator):
-        return WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(locator))
 
     @allure.step('Ожидаем, что элемент visible')
     def wait_clickable_find_element_click(self, locator):
