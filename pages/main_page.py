@@ -8,11 +8,6 @@ from data import Urls
 
 class MainPage(BasePage):
 
-    @allure.step('Ожидаем элемент и отдаем текст')
-    def check_invisible_cross(self):
-        current_user = self.wait_and_find_element(self.CURRENT_ACCOUNT_LOGIN)
-        return current_user.text
-
     @allure.step('Кликаем на кнопку Личный кабинет')
     def click_personal_account(self):
         self.wait_and_find_element(MainPageLocators.PERSONAL_BUTTON)
