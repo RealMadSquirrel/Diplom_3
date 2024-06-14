@@ -6,11 +6,13 @@ from pages.base_page import BasePage
 from pages.main_page import MainPage
 from pages.forgot_password_page import ForgotPasswordPage
 from data import Urls
+
+
 class LoginPage(BasePage):
 
     @allure.step('Заполняем поле Email')
     def set_email_input(self, email):
-        login_input = self.wait_and_find_element(LoginPageLocators.EMAIL_INPUT)
+        login_input = self.wait_and_find_element(LoginPageLocators.EMAIL_INPUT_IN_LOGIN)
         login_input.send_keys(email)
 
     @allure.step('Заполняем поле Password')
@@ -24,7 +26,6 @@ class LoginPage(BasePage):
         self.click_to_element_with_js(LoginPageLocators.BUTTON_GO)
         return MainPage(self.driver)
 
-
     @allure.step('Кликаем по кнопке «Восстановить пароль»')
     def click_restore_password(self):
         self.wait_and_find_element(LoginPageLocators.FORGOT_PASSWORD)
@@ -33,7 +34,6 @@ class LoginPage(BasePage):
     @allure.step('Кликаем по кнопке «Войти»')
     def click_go_to_button(self):
         self.click_to_element_with_js(LoginPageLocators.BUTTON_GO)
-
 
     @allure.step('Ожидание смены страницы логина')
     def wait_for_url_changes_login(self):
@@ -50,5 +50,3 @@ class LoginPage(BasePage):
     @allure.step('Кликаем на глазик скрыть/посмотреть пароль')
     def click_eye_button(self):
         return self.click_to_element_with_js(LoginPageLocators.EYE_BUTTON)
-
-

@@ -13,15 +13,22 @@ class AccountPage(BasePage):
     def click_button_history(self):
         self.wait_and_click_to_element(AccountPageLocators.HISTORY_ORDER_BUTTON)
 
-
-
-    @allure.step('Кликаем по кнопке «Выход»')
-    def click_restore_password(self):
-        self.wait_and_find_element(LoginPageLocators.FORGOT_PASSWORD)
-        self.click_to_element_with_js(LoginPageLocators.FORGOT_PASSWORD)
-        return ForgotPasswordPage(self.driver)
-
-
     @allure.step('Поиск идентификатора заказа в истории заказов')
     def search_order_id_in_history(self):
-       return self.wait_and_find_element(AccountPageLocators.ORDER_IDENTIFICATOR).text
+       return self.wait_and_find_element(AccountPageLocators.ORDER_IDENTIFICATOR_IN_HISTORY).text
+
+    @allure.step('Поиск и клик на Историю заказов')
+    def search_and_click_history_button(self):
+        return self.wait_and_click_to_element(AccountPageLocators.HISTORY_ORDER_BUTTON)
+
+    @allure.step('Получение атрибута aria-current у Истории заказов')
+    def get_atribute_history_button(self):
+        return self.wait_and_find_element(AccountPageLocators.HISTORY_ORDER_BUTTON).get_attribute('aria-current')
+
+    @allure.step('Поиск и клик на Выход')
+    def search_and_click_exit(self):
+        return self.wait_and_click_to_element(AccountPageLocators.EXIT_BUTTON)
+
+    @allure.step('Поиск заголовка Профиль')
+    def search_profile_title(self):
+        return self.wait_and_find_element(AccountPageLocators.PROFILE_TITLE).text

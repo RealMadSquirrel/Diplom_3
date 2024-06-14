@@ -75,18 +75,8 @@ class MainPage(BasePage):
     def info_ingredient_is_invisible(self):
         return self.element_is_invisible(MainPageLocators.CROSS_BUTTON)
 
-    @allure.step('Поиск заголовка Профиль')
-    def search_profile_title(self):
-        return self.wait_and_find_element(MainPageLocators.PROFILE_TITLE).text
 
-    @allure.step('Поиск и клик на Историю заказов')
-    def search_and_click_history_button(self):
-        return self.wait_and_click_to_element(MainPageLocators.HISTORY_ORDER_BUTTON)
 
-    @allure.step('Получение атрибута aria-current у Истории заказов')
-    def get_atribute_history_button(self):
-        return self.wait_and_find_element(MainPageLocators.HISTORY_ORDER_BUTTON).get_attribute('aria-current')
 
-    @allure.step('Поиск и клик на Выход')
-    def search_and_click_exit(self):
-        return self.wait_and_click_to_element(MainPageLocators.EXIT_BUTTON)
+
+

@@ -18,7 +18,7 @@ class OrderLentaPage(BasePage):
 
     @allure.step('Поиск идентификатора заказа в ленте заказов')
     def search_order_id_in_lenta(self):
-        return self.wait_and_find_element(OrdersLentaPageLocators.ORDER_IDENTIFICATOR).text
+        return self.wait_and_find_element(OrdersLentaPageLocators.ORDER_IDENTIFICATOR_IN_LENTA).text
 
     @allure.step('Поиск числа заказов, выполненных за все время')
     def search_all_completed_order_in_lenta(self):

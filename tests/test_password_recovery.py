@@ -16,7 +16,8 @@ class TestLoginPage:
         login_page = LoginPage(driver)
         login_page.open_page(Urls.BASE_URL + Urls.LOGIN)
         login_page.click_restore_password()
-        assert login_page.wait_url_to_be(Urls.BASE_URL + Urls.FORGOT_PASSWORD)
+        forgot_password_page = ForgotPasswordPage(driver)
+        assert forgot_password_page.wait_url_to_be(Urls.BASE_URL + Urls.FORGOT_PASSWORD)
 
     @allure.title("Ввод почты и клик по кнопке «Восстановить»")
     @allure.description("Создается страница forgot_password_page, заполняется почта, клик по кнопке «Восстановить»")
